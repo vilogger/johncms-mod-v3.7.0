@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /panel/
+Disallow: /download/arctemp/
+Disallow: /files/forum/attach/
+Sitemap: /sitemap.xml

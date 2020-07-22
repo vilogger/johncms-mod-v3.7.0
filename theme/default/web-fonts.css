@@ -1,0 +1,115 @@
+/* BEGIN Light */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-Light.ttf");
+  font-weight: 300;
+  font-style: normal; }
+/* END Light */
+/* BEGIN Light Italic */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-LightItalic.ttf");
+  font-weight: 300;
+  font-style: italic; }
+/* END Light Italic */
+/* BEGIN Regular */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal; }
+/* END Regular */
+/* BEGIN Italic */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-Italic.ttf");
+  font-weight: normal;
+  font-style: italic; }
+/* END Italic */
+/* BEGIN Semibold */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-Semibold.ttf");
+  font-weight: 600;
+  font-style: normal; }
+/* END Semibold */
+/* BEGIN Semibold Italic */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-SemiboldItalic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+/* END Semibold Italic */
+/* BEGIN Bold */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
+  font-style: normal; }
+/* END Bold */
+/* BEGIN Bold Italic */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-BoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic; }
+/* END Bold Italic */
+/* BEGIN Extrabold */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-ExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal; }
+/* END Extrabold */
+/* BEGIN Extrabold Italic */
+@font-face {
+  font-family: 'Open Sans';
+  src: url("./fonts/OpenSans-ExtraBoldItalic.ttf");
+  font-weight: 800;
+  font-style: italic; }
+/* END Extrabold Italic */
+
+html, body, td, input, textarea {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: small;
+  color: #343434;
+}
+
+form {
+  font-size: small;
+}
+.rightf {
+  font-size : 12px;
+}
+.info-c {
+  font-size: 12px;
+}
+.info-file1 {
+  font-size: 12px;
+}
+.info-file3 {
+  font-size: x-small;
+}
+.font-xs {
+  font-size: x-small;
+}
+.news {
+  font-size: x-small;
+}
+
+.news:hover {
+  font-size: small;
+}
+.status {
+  font-size: x-small;
+}
+.sub {
+  font-size: x-small;
+}
+.reaction_wrap-style .numcount .lvspan {
+  font-size: 11px;
+}
+.quote {
+  font-size: 12px;
+}

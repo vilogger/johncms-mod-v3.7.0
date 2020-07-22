@@ -1,0 +1,120 @@
+Options -Indexes
+ErrorDocument 402 /?err
+ErrorDocument 403 /?err
+ErrorDocument 404 /?err
+ErrorDocument 500 /?err
+DirectoryIndex index.php
+
+RemoveHandler .phtml .php3 .php4 .php5 .php6 .phps .cgi .pl .asp .aspx .shtml .shtm .fcgi .fpl .jsp .py
+AddType application/x-httpd-php-source .phtml .php3 .php4 .php5 .php6 .phps .cgi .pl .asp .aspx .shtml .shtm .fcgi .fpl .jsp .py
+
+php_flag display_errors 0
+AddDefaultCharset UTF-8
+
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+
+  # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+
+  # Data interchange
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+  # Favicon (cannot be renamed!) and cursor images
+    ExpiresByType image/x-icon                          "access plus 1 week"
+
+  # HTML components (HTCs)
+    ExpiresByType text/x-component                      "access plus 1 month"
+
+  # HTML
+    ExpiresByType text/html                             "access plus 0 seconds"
+
+  # JavaScript
+    ExpiresByType application/javascript                "access plus 1 year"
+
+  # Manifest files
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+  # Media
+    ExpiresByType audio/ogg                             "access plus 1 month"
+    ExpiresByType image/gif                             "access plus 1 month"
+    ExpiresByType image/jpeg                            "access plus 1 month"
+    ExpiresByType image/png                             "access plus 1 month"
+    ExpiresByType video/mp4                             "access plus 1 month"
+    ExpiresByType video/ogg                             "access plus 1 month"
+    ExpiresByType video/webm                            "access plus 1 month"
+
+  # Web feeds
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+</IfModule>
+
+ RewriteEngine On
+ RewriteRule ^index.html$ /index.php [L]
+
+# avatar radius
+ RewriteRule ^avatar/([0-9]+)-([0-9]+)-([0-9]+).png$ /avt.php?avt=$1&bo=$2&size=$3 [L]
+ RewriteRule ^avatar/default-([0-9]+)-([0-9]+).png$ /avt-default.php?bo=$1&size=$2 [L]
+
+# new
+ RewriteRule ^news/index.html$ /news/index.php [L]
+ RewriteRule ^news/([0-9]+)/(.*).html$ /news/index.php?do=view&id=$1&url=$2 [L]
+
+# forum
+ RewriteRule ^forum/index.html$ /forum/index.php [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_start([0-9]+)_clip.html$ /forum/index.php?id=$1&url=$2&start=$3&clip [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_clip_p([0-9]+).html$ /forum/index.php?id=$1&url=$2&clip&page=$3 [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_p([0-9]+).html$ /forum/index.php?id=$1&url=$2&page=$3 [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_start([0-9]+).html$ /forum/index.php?id=$1&url=$2&start=$3 [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_start([0-9]+)_vote.html$ /forum/index.php?id=$1&url=$2&start=$3&vote_result [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_p([0-9]+)_newup.html$ /forum/index.php?id=$1&url=$2&page=$3&newup [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_p([0-9]+)_newdown.html$ /forum/index.php?id=$1&url=$2&page=$3&newdown [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_id-thank([0-9]+)_thank.html$ /forum/index.php?id=$1&url=$2&id_thank=$3&thank [L]
+ RewriteRule ^forum/([0-9]+)/(.*)_id-thank([0-9]+)_unthank.html$ /forum/index.php?id=$1&url=$2&id_thank=$3&unthank [L]
+ RewriteRule ^forum/([0-9]+)/(.*).html$ /forum/index.php?id=$1&url=$2 [L]
+ RewriteRule ^forum/post-([0-9]+).html$ /forum/index.php?act=post&id=$1 [L]
+
+
+# forum files
+ RewriteRule ^forum/files.html$ /forum/index.php?act=files [L]
+ RewriteRule ^forum/files-new.html$ /forum/index.php?act=files&new [L]
+ RewriteRule ^forum/files-new_t([0-9]+).html$ /forum/index.php?act=files&new&t=$1 [L]
+ RewriteRule ^forum/files-new_c([0-9]+).html$ /forum/index.php?act=files&new&c=$1 [L]
+ RewriteRule ^forum/files-new_s([0-9]+).html$ /forum/index.php?act=files&new&s=$1 [L]
+
+ RewriteRule ^forum/files-new_p([0-9]+).html$ /forum/index.php?act=files&new&page=$1 [L]
+ RewriteRule ^forum/files-new_t([0-9]+)_p([0-9]+).html$ /forum/index.php?act=files&new&t=$1&page=$2 [L]
+ RewriteRule ^forum/files-new_c([0-9]+)_p([0-9]+).html$ /forum/index.php?act=files&new&c=$1&page=$2 [L]
+ RewriteRule ^forum/files-new_s([0-9]+)_p([0-9]+).html$ /forum/index.php?act=files&new&s=$1&page=$2 [L]
+
+ RewriteRule ^forum/files_do([0-9]+)_t([0-9]+)_p([0-9]+).html$ /forum/index.php?act=files&do=$1&t=$2&page=s3 [L]
+ RewriteRule ^forum/files_do([0-9]+)_c([0-9]+)_p([0-9]+).html$ /forum/index.php?act=files&do=$1&c=$2&page=$3 [L]
+ RewriteRule ^forum/files_do([0-9]+)_s([0-9]+)_p([0-9]+).html$ /forum/index.php?act=files&do=$1&s=$2&page=$3 [L]
+
+ RewriteRule ^forum/files-t([0-9]+).html$ /forum/index.php?act=files&t=$1 [L]
+ RewriteRule ^forum/files-c([0-9]+).html$ /forum/index.php?act=files&c=$1 [L]
+ RewriteRule ^forum/files-s([0-9]+).html$ /forum/index.php?act=files&s=$1 [L]
+ RewriteRule ^forum/files_do([0-9]+)_t([0-9]+).html$ /forum/index.php?act=files&do=$1&t=$2 [L]
+ RewriteRule ^forum/files_do([0-9]+)_c([0-9]+).html$ /forum/index.php?act=files&do=$1&c=$2 [L]
+ RewriteRule ^forum/files_do([0-9]+)_s([0-9]+).html$ /forum/index.php?act=files&do=$1&s=$2 [L]
+ RewriteRule ^forum/files_do([0-9]+).html$ /forum/index.php?act=files&do=$1 [L]
+ RewriteRule ^forum/files_c([0-9]+).html$ /forum/index.php?act=files&c=$1 [L]
+ RewriteRule ^forum/files_s([0-9]+).html$ /forum/index.php?act=files&s=$1 [L]
+ RewriteRule ^forum/files_t([0-9]+).html$ /forum/index.php?act=files&t=$1 [L]
+
+# forum search
+ RewriteRule ^forum/timkiem.html$ /forum/search.php [L]
+ RewriteRule ^forum/timkiem_id([0-9]+).html$ /forum/search.php?id=$1 [L]
+
+# imgur
+ RewriteRule ^upload-hinhanh.html$ /tool/image-upload/index.php [L]
+ RewriteRule ^upload-hinhanh/upload.html$ /tool/image-upload/upload.php [L]
+ RewriteRule ^upload-hinhanh/file([0-9]+).html$ /tool/image-upload/file.php?id=$1 [L]
+ RewriteRule ^hinhanh([0-9]+).html$ /tool/image-upload/showimg.php?id=$1 [L]
+ RewriteRule ^hinhanhmoi([0-9]+).html$ /tool/image-upload/showimg.php?id=$1&new [L]
+ RewriteRule ^upload-hinhanh/file([0-9]+)_p([0-9]+).html$ /tool/image-upload/file.php?id=$1&page=$2 [L]

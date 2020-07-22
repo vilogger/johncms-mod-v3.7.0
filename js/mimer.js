@@ -1,0 +1,1 @@
+document.write ('Lỗi: Trình duyệt bạn đang dùng. Không hỗ trợ Flash.<br />Yêu cầu cài đặt: Adobe Flash player hoặc các phần mềm hỗ trợ..');

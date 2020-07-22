@@ -1,0 +1,43 @@
+html, body, td, input, textarea {
+  font-family: 'Helvetica Neue', Helvetica, 'Droid Sans', 'DroidSansRegular', Arial, sans-serif;
+  font-size: 14px;
+  color: #343434;
+}
+
+form {
+  font-size: 14px;
+}
+.rightf {
+  font-size : 13px;
+}
+.info-c {
+  font-size: 13px;
+}
+.info-file1 {
+  font-size: 13px;
+}
+.info-file3 {
+  font-size: small;
+}
+.font-xs {
+  font-size: small;
+}
+.news {
+  font-size: small;
+}
+
+.news:hover {
+  font-size: 14px;
+}
+.status {
+  font-size: small;
+}
+.sub {
+  font-size: small;
+}
+.reaction_wrap-style .numcount .lvspan {
+  font-size: small;
+}
+.quote {
+  font-size: 13.3px;
+}

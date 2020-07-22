@@ -1,0 +1,54 @@
+body {
+    background: #f3f3f3 url(/theme/default/images/fon.png) repeat;
+    font-family: 'Helvetica Neue', Helvetica, 'Droid Sans', 'DroidSansRegular', Arial, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
+#main {
+    background-color: #f3f3f3;
+    margin: 2px auto 0 auto;
+    max-width: 640px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px #444, -5px -5px 5px #444;
+    padding: 0;
+    color: #343434;
+}
+#navigator {
+     background-color: #00a8e8;
+     border: 0;
+     border-top-left-radius: 8px;
+     border-top-right-radius: 8px;
+     background: -o-linear-gradient(bottom, #2d7cff 30%, #00abff 70%);
+     background: -moz-linear-gradient(bottom, #2d7cff 30%, #00abff 70%);
+     background: -ms-linear-gradient(bottom, #2d7cff 30%, #00abff 70%);
+     background: -webkit-gradient(linear, left bottom, left top, color-stop(0.3, #2d7cff), color-stop(0.7, #00abff));
+     font-color: #fff;
+     font-weight: bold;
+     margin: 0;
+     padding: 5px;
+     text-shadow: 1px 1px #333;
+}
+#navigator a, #navigator span {
+     color: #fff;
+}
+.list, #footer {
+     background-color: #fff;
+     border-color: #dedede;
+     border-style: solid;
+     border-width: 0 1px 1px 1px;
+     margin: 0;
+     padding: 4px;
+}
+.list a, #footer a {
+     color: #333;
+     text-decoration: none;
+}
+.list a:hover {
+     color: #f00;
+}
+#footer {
+     border-bottom-left-radius: 8px;
+     border-bottom-right-radius: 8px;
+
+}

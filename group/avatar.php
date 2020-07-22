@@ -1,0 +1,56 @@
+<?php
+/*///////////////////////
+//@Tac gia: Nguyen Ary
+//@Site: gochep.net
+//@Facebook: facebook.com/tia.chophht
+///////////////////////*/
+define('_IN_JOHNCMS', 1);
+require('../incfiles/core.php');
+require('../incfiles/lib/class.upload.php');
+
+$textl= 'Thay ảnh đại diện của nhóm';
+require('../incfiles/head.php');
+require('func.php');
+$id= intval(abs($_GET['id']));
+$dem = mysql_result(mysql_query("SELECT COUNT(*) FROM `nhom` WHERE `id`='$id'"),0);
+if(!isset($id) || $dem == 0) {
+echo '<br/><div class="tb">Nhóm không tồn tại hoặc đã bị xoá!</div>';
+require('../incfiles/end.php');
+exit;
+}
+$nhom = nhom($id);
+echo head_nhom($id, $user_id);
+if($nhom['user_id'] != $user_id) {
+echo '<br/><div class="tb">Không đủ quyền!</div>';
+require('../incfiles/end.php');
+exit;
+}
+echo '<div class="phdr"><b>Thay ảnh đại diện nhóm</b></div><div class="list1">';
+if(isset($_POST['submit'])) {
+$handle = new upload($_FILES['imagefile']);
+if($handle->uploaded) {
+$handle->file_new_name_body = $id;
+//$handle->mime_check = false;
+$handle->allowed = array('image/jpeg',
+'image/gif',
+'image/png');
+$handle->file_max_size = 1024 * $set['flsz'];
+$handle->file_overwrite = true;
+$handle->image_resize = true;
+$handle->image_x = 40;
+$handle->image_y = 40;
+$handle->image_convert ='png';
+$handle->process('avatar/');
+if ($handle->processed) {
+echo '<divclass="tb">Thay thế ảnh đại diện thành công! <a href="page.php?id='.$id.'">Trở về nhóm >></a></div>';
+} else {
+echo functions::display_error($handle->error);
+}
+$handle->clean();
+}
+} else {
+echo'<form method="post" enctype="multipart/form-data">Chọn ảnh:<br/><input type="file" name="imagefile" value=""/><input type="hidden" name="MAX_FILE_SIZE" value="'. (1024 * $set['flsz']) .'"/><br/><input type="submit" name="submit" value="Thay thế" /></div></form>';
+}
+echo '</div>';
+require('../incfiles/end.php');
+?>
